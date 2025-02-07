@@ -1,11 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import HeroTitle from "../components/ui/HeroTitle.astro";
+import CardLink from "../components/CardLink.astro";
+import { variablesCardLink } from "../api/variablesCardLink";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Sistema Academico ESAM"
+  canonical="https://academico-docentes.esam.edu.bo/"
+  description="Sistema académico de ESAM para contratación y postulación de docentes."
+>
+  <HeroTitle titulo="Menú Principal" />
+  <div class="contenidoCentral">
+    {
+      variablesCardLink.map((boton) => (
+        <CardLink title={boton.titulo} image={boton.imagen} href={boton.href} />
+      ))
+    }
+  </div>
 </Layout>
+
+<style>
+  .contenidoCentral {
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: 15%;
+    margin-right: 15%;
+    max-width: 150.3333333333rem;
+
+    animation-name: iniciar;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+</style>
