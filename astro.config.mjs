@@ -1,10 +1,11 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel/server'; // Cambiado a Vercel
+import node from '@astrojs/node'; // Asegúrate de importar correctamente
+
 
 export default defineConfig({
   output: 'server',
-  adapter: vercel(), // Ahora usa Vercel
+  adapter: node({ mode: 'standalone' }), // Usa Node.js en lugar de Vercel
   integrations: [react()],
   vite: {
     ssr: {
