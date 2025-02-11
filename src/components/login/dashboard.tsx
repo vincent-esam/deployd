@@ -159,9 +159,9 @@ export const Dashboard: React.FC = () => {
     <div>
       <div className="Prueba">
         <div className="contenedor2">
-          <h1> contenedor 2</h1>
+          <h1> Perfil</h1>
           <div className="contenedor2-1">
-            <h1 className="form-title">contenedor2-1</h1>
+            <h1 className="form-title"></h1>
             <div className="contenedor1">
               {/* Muestra la fotografía actual proveniente de la base de datos */}
               {docenteData?.fotografia && !previewURL && (

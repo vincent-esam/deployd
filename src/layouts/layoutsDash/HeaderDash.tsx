@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import "./HeaderDash.css"; 
+import "./headerDash.css"; 
 
 
 interface DecodedToken {
