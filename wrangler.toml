@@ -1,5 +1,5 @@
 name = "astro-academic"
-main = "./dist/server/worker.js"
+main = "./dist/_worker.js"
 compatibility_date = "2025-02-11"
 
 [vars]
