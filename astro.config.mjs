@@ -1,13 +1,20 @@
-// @ts-check
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import cloudflare from '@astrojs/cloudflare';
 
-import react from '@astrojs/react'; // Asegúrate de importar la integración de React
-import cloudflare from "@astrojs/cloudflare";
-
-
-// https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: 'server',
   adapter: cloudflare(),
-  integrations: [react()] // Agrega la integración de React aquí
+  integrations: [react()],
+  vite: {
+    ssr: {
+      external: ['mysql2', 'process', 'crypto', 'stream', 'jsonwebtoken'], // Externaliza más dependencias
+    },
+    build: {
+      rollupOptions: {
+        external: ['mysql2', 'process', 'crypto', 'stream', 'jsonwebtoken'],
+      },
+    },
+  },
 });
