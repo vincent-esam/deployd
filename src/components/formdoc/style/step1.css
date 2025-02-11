@@ -344,3 +344,77 @@ background-color: #f4f2ee;
 }
 
 
+/* Contenedor de los botones */
+.buttons-container-perfil {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Estilos base para los botones */
+.animated-button-estudios,
+.animated-button-experiencia,
+.animated-button-habilidades,
+.animated-button-idiomas,
+.animated-button-producciones {
+  position: relative;
+  width: 200px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+  background-color: #007bff;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  padding: 10px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Icono dentro del botón */
+.animated-button-estudios::after,
+.animated-button-experiencia::after,
+.animated-button-habilidades::after,
+.animated-button-idiomas::after,
+.animated-button-producciones::after {
+  content: "→";
+  position: absolute;
+  right: -20px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto Hover */
+.animated-button-estudios:hover,
+.animated-button-experiencia:hover,
+.animated-button-habilidades:hover,
+.animated-button-idiomas:hover,
+.animated-button-producciones:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.animated-button-estudios:hover::after,
+.animated-button-experiencia:hover::after,
+.animated-button-habilidades:hover::after,
+.animated-button-idiomas:hover::after,
+.animated-button-producciones:hover::after {
+  right: 15px;
+  opacity: 1;
+}
+
+/* Efecto Activo (cuando se presiona) */
+.animated-button-estudios:active,
+.animated-button-experiencia:active,
+.animated-button-habilidades:active,
+.animated-button-idiomas:active,
+.animated-button-producciones:active {
+  transform: translateY(1px);
+  background-color: #004494;
+}

@@ -3,7 +3,7 @@ import CountrySelect from "./CountrySelect";
 import ModalidadesSelect from "./ModalidadesSelect";
 import GradosSelect from "./GradosSelect";
 import "../perfil-doc/syles/EditDocente.css";
-import AddProfileSection from "./AddProfileSection";
+
 import { ImageUpload } from "../upload/Uploadimages";
 
 interface Docente {
@@ -344,14 +344,6 @@ const EditDocente: React.FC<UpdateFormProps> = ({ idDocente }) => {
             Agregar Sección
           </button>
 
-          {isModalOpen && (
-            <AddProfileSection
-              isOpen={isModalOpen}
-              onClose={handleCloseModal}
-              selectedType={selectedType}
-              onSaveInfo={handleSaveInfo}
-            />
-          )}
         </form>
       )}
     </div>

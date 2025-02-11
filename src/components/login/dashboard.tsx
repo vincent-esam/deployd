@@ -61,12 +61,14 @@ export const Dashboard: React.FC = () => {
       formData.append("direccion", newInfo.direccion || "");
       formData.append("estado", newInfo.estado || "");
 
-      // Si se seleccionó una nueva imagen, la adjuntamos al formData
+      // Si se seleccionó una nueva imagen, se adjunta
       if (selectedFile) {
         formData.append("fotografia", selectedFile);
+      } else if (docenteData?.fotografia) {
+        // Si no se seleccionó una nueva imagen, enviamos la URL de la imagen actual
+        formData.append("fotografia", docenteData.fotografia);
       }
 
-      // Enviar la solicitud sin definir manualmente "Content-Type"
       const response = await fetch("/api/update_postulante", {
         method: "POST",
         body: formData,
@@ -178,15 +180,7 @@ export const Dashboard: React.FC = () => {
                 />
               )}
             </div>
-            <div className="fotografi-cont">
-              <label className="form-label">Fotografía:</label>
-              <input
-                className="form-input"
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-              />
-            </div>
+            
           </div>
           <div className="contenedor2-2">
             {/* Contenedor para profile-info y edit-button */}
@@ -287,8 +281,13 @@ export const Dashboard: React.FC = () => {
         <div className="modaldash">
           <div className="modaldash-content">
             <h2>Editar Información</h2>
+
+
             <form className="profile-form" onSubmit={handleSubmit}>
+
+              
               {[
+                
                 { label: "Nombres", name: "nombres" },
                 { label: "Apellido Paterno", name: "apellidoPaterno" },
                 { label: "Apellido Materno", name: "apellidoMaterno" },
@@ -312,7 +311,15 @@ export const Dashboard: React.FC = () => {
                   />
                 </div>
               ))}
-
+<div className="fotografi-cont">
+              <label className="form-label">Fotografía:</label>
+              <input
+                className="form-input"
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+              />
+            </div>
               <div className="form-group">
                 <label className="form-label">Fecha de Nacimiento:</label>
                 <input
