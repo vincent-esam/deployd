@@ -1,5 +1,5 @@
 import React from "react";
-import "./FooterDash.css";
+import "./footerdash.css";
 
 const Footerdash: React.FC = () => {
   return (
