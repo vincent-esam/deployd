@@ -1,14 +1,12 @@
 import { connectToDatabase } from "../../utils/dbConect";
 import type { APIContext } from "astro";
-import fs from "fs";
-import path from "path";
 import bcrypt from "bcryptjs";
 
 export async function POST({ request }: APIContext) {
   try {
     const formData = await request.formData();
     // Extraer los datos del formulario
-    const usuario = formData.get("usuario")?.toString(); // Nuevo campo
+    const usuario = formData.get("usuario")?.toString();
     const password = formData.get("password")?.toString();
     const nombres = formData.get("nombres")?.toString();
     const apellidoPaterno = formData.get("apellidoPaterno")?.toString();
@@ -22,7 +20,6 @@ export async function POST({ request }: APIContext) {
     const idSector = formData.get("idSector")?.toString();
     const imagen = formData.get("fotografia") as File | null;
     console.log("Imagen recibida en el backend:", imagen);
-
 
     // Validar los campos requeridos
     if (
@@ -43,41 +40,32 @@ export async function POST({ request }: APIContext) {
         { status: 400 }
       );
     }
-  // Encriptar la contraseña
-  const hashedPassword = await bcrypt.hash(password.trim(), 10); 
-     // Guardar la imagen en el servidor
-     let imagePath = null;
-     if (imagen) {
-          console.log("Nombre del archivo:", imagen.name);
+
+    // Encriptar la contraseña
+    const hashedPassword = await bcrypt.hash(password.trim(), 10);
+
+    // Convertir la imagen a Base64 para almacenar en la base de datos
+    let imageBase64: string | null = null;
+    if (imagen) {
+      console.log("Nombre del archivo:", imagen.name);
       console.log("Tipo de archivo:", imagen.type);
-       const uploadDir = path.join(process.cwd(), "public/images/docentes");
-       if (!fs.existsSync(uploadDir)) {
-         fs.mkdirSync(uploadDir, { recursive: true });
-       }
- 
-       const fileName = `${Date.now()}-${imagen.name || "imagen"}`;
-       const filePath = path.join(uploadDir, fileName);
- 
-       try {
-         // Leer la imagen y guardarla en el servidor
-         if (imagen) {
-          const buffer = Buffer.from(await imagen.arrayBuffer());
-          console.log("Buffer de imagen:", buffer);
-        
-          fs.writeFileSync(filePath, buffer);
-          console.log("Ruta donde se guardará la imagen:", filePath);
-        }
-        
- 
-         imagePath = `/images/docentes/${fileName}`;
-       } catch (err) {
-         console.error("Error al guardar la imagen:", err);
-         return new Response(
-           JSON.stringify({ error: "Error al guardar la imagen" }),
-           { status: 500 }
-         );
-       }
-     }
+      try {
+        const buffer = Buffer.from(await imagen.arrayBuffer());
+        // Convertir el Buffer a cadena en Base64
+        imageBase64 = buffer.toString("base64");
+        // Opcional: si quieres almacenar la información del tipo MIME junto con la imagen,
+        // puedes concatenarlo de la siguiente manera:
+        // imageBase64 = `data:${imagen.type};base64,` + imageBase64;
+        console.log("Imagen convertida a Base64.");
+      } catch (err) {
+        console.error("Error al convertir la imagen:", err);
+        return new Response(
+          JSON.stringify({ error: "Error al procesar la imagen" }),
+          { status: 500 }
+        );
+      }
+    }
+
     // Conectar a la base de datos e insertar los datos
     const db = await connectToDatabase();
 
@@ -86,7 +74,7 @@ export async function POST({ request }: APIContext) {
         usuario, password, nombres, apellidoPaterno, apellidoMaterno, correo,
         ciudadRadicacion, idPais, telefono, fechaNacimiento,
         idAreaInteres, idSector, fotografia, estado
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
     const values = [
       usuario.trim(),
@@ -101,9 +89,8 @@ export async function POST({ request }: APIContext) {
       fechaNacimiento.trim(),
       Number(idAreaInteres),
       Number(idSector),
-      imagePath || null, // Guardar la ruta de la imagen en la base de datos
+      imageBase64, // Se almacena la cadena Base64 (o null si no se subió imagen)
       "postulante",
- 
     ];
 
     await db.execute(query, values);

@@ -1,11 +1,9 @@
 import { connectToDatabase } from "../../utils/dbConect";
 import type { APIContext } from "astro";
-import fs from "fs";
-import path from "path";
 
 export async function POST({ request }: APIContext) {
   try {
-    // Se obtiene el formData en lugar de request.json()
+    // Obtener el formData del request
     const formData = await request.formData();
 
     // Extraer los campos enviados por el formulario
@@ -33,31 +31,18 @@ export async function POST({ request }: APIContext) {
       );
     }
 
-    // Manejo de la imagen (si se envió una nueva)
-    let imagePath = null;
+    // Manejo de la imagen: convertirla a Base64 para almacenarla en la base de datos
+    let imageBase64: string | null = null;
     if (fotografia && fotografia.size > 0) {
       console.log("Imagen recibida en el backend:", fotografia);
-
-      // Definir el directorio de destino (asegúrate de que exista o se cree)
-      const uploadDir = path.join(process.cwd(), "public/images/docentes");
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
-
-      // Se genera un nombre único para el archivo
-      const fileName = `${Date.now()}-${fotografia.name || "imagen"}`;
-      const filePath = path.join(uploadDir, fileName);
-
       try {
-        // Convertir el archivo a buffer y escribirlo en disco
         const buffer = Buffer.from(await fotografia.arrayBuffer());
-        fs.writeFileSync(filePath, buffer);
-        console.log("La imagen se guardó en:", filePath);
-        imagePath = `/images/docentes/${fileName}`;
+        imageBase64 = buffer.toString("base64");
+        console.log("Imagen convertida a Base64.");
       } catch (err) {
-        console.error("Error al guardar la imagen:", err);
+        console.error("Error al procesar la imagen:", err);
         return new Response(
-          JSON.stringify({ error: "Error al guardar la imagen" }),
+          JSON.stringify({ error: "Error al procesar la imagen" }),
           { status: 500 }
         );
       }
@@ -66,7 +51,7 @@ export async function POST({ request }: APIContext) {
     // Conectar a la base de datos
     const db = await connectToDatabase();
 
-    // Consulta de actualización, incluyendo la ruta de la imagen
+    // Consulta de actualización, incluyendo la imagen convertida
     const docenteQuery = `
       UPDATE docentes 
       SET 
@@ -101,7 +86,7 @@ export async function POST({ request }: APIContext) {
       genero?.trim() || null,
       direccion?.trim() || null,
       estado?.trim() || null,
-      imagePath, // Si no se envió nueva imagen, se almacenará null (puedes adaptar esta lógica para conservar la foto actual)
+      imageBase64, // Se almacena la cadena Base64 de la imagen (o null si no se envió nueva imagen)
       idDocente,
     ];
 
