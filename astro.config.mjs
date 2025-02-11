@@ -1,11 +1,10 @@
-// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import cloudflare from '@astrojs/cloudflare';
+import vercel from '@astrojs/vercel/server'; // Cambiado a Vercel
 
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare(),
+  adapter: vercel(), // Ahora usa Vercel
   integrations: [react()],
   vite: {
     ssr: {
