@@ -1,0 +1,6 @@
+name = "astro-academic"
+main = "./dist/server/entry.mjs"
+compatibility_date = "2025-02-11"
+
+[vars]
+NODE_ENV = "production"
