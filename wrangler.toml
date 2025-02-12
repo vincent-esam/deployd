@@ -1,7 +1,0 @@
-name = "astro-academic"
-main = "./dist/_worker.js"
-compatibility_date = "2025-02-11"
-node_compat = true  # <-- Usa "node_compat" en lugar de "nodejs_compat"
-
-[vars]
-NODE_ENV = "production"

@@ -181,7 +181,8 @@ FROM
     -- Relación con estudios superiores
     LEFT JOIN docentes_estudios de ON (d.idDocente = de.idDocente)
     LEFT JOIN estudiossuperiores es ON (de.idEstudioSuperior = es.idEstudioSuperior)
-    LEFT JOIN tiposestudios te ON (te.idTipo = es.idTipo)
+    LEFT JOIN tiposestudios te ON te.idTipoEstudio = es.idTipoEstudio
+
     LEFT JOIN modalidades m ON m.idModalidad = es.idModalidad
     LEFT JOIN grados g ON g.idGrado = es.idGrado
     LEFT JOIN paises ep ON ep.idPais = es.idPais  
