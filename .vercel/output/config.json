@@ -2,6 +2,9 @@
 	"version": 3,
 	"routes": [
 		{
+			"handle": "filesystem"
+		},
+		{
 			"src": "^/_astro/(.*)$",
 			"headers": {
 				"cache-control": "public, max-age=31536000, immutable"
@@ -9,190 +12,235 @@
 			"continue": true
 		},
 		{
-			"handle": "filesystem"
-		},
-		{
-			"src": "^\\/_server-islands\\/([^/]+?)\\/?$",
+			"src": "^/_server-islands/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/_image\\/?$",
+			"src": "^/_image/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/auth\\/?$",
+			"src": "^/api/auth/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/dashboard\\/dashboard\\/?$",
+			"src": "^/api/convocatorias/convocatorias/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/agendas\\/insert_agendas\\/?$",
+			"src": "^/api/convocatorias/insert_convocatorias/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/agendas\\/updateReunion\\/?$",
+			"src": "^/api/convocatorias/postulantes/create/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/docente\\/?$",
+			"src": "^/api/convocatorias/postulantes/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/grados\\/?$",
+			"src": "^/api/convocatorias/updateConvocatorias/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/postulantes\\/?$",
+			"src": "^/api/convocatorias/updateEstado/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/prueba\\/([^/]+?)\\/?$",
+			"src": "^/api/convocatorias/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/updateAgendado\\/?$",
+			"src": "^/api/dashboard/dashboard/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/updateEstadoDocente\\/?$",
+			"src": "^/api/docentes/agendas/insert_agendas/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/([^/]+?)backup\\/?$",
+			"src": "^/api/docentes/agendas/updateReunion/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/docentes\\/([^/]+?)\\/?$",
+			"src": "^/api/docentes/grados/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/estudiossup\\/?$",
+			"src": "^/api/docentes/postulantes/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/estudiossuppost\\/?$",
+			"src": "^/api/docentes/prueba/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/expdoc\\/expdocpost\\/?$",
+			"src": "^/api/docentes/updateAgendado/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/expdoc\\/expdocput\\/?$",
+			"src": "^/api/docentes/updateEstadoDocente/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/grados\\/grados\\/?$",
+			"src": "^/api/docentes/([^/]+?)backup/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/idiomas\\/idiomas\\/?$",
+			"src": "^/api/docentes/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/idiomasdoc\\/idiomasdocpost\\/?$",
+			"src": "^/api/estudiossup/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/idiomasdoc\\/idiomasdocput\\/?$",
+			"src": "^/api/estudiossuppost/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/insert_postulante\\/?$",
+			"src": "^/api/expdoc/expdocpost/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/modalidades\\/modalidades\\/?$",
+			"src": "^/api/expdoc/expdocput/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/paises\\/paises\\/?$",
+			"src": "^/api/grados/grados/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/prodintelectual\\/prodintelpost\\/?$",
+			"src": "^/api/idiomas/idiomas/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/prodintelectual\\/prodintelput\\/?$",
+			"src": "^/api/idiomasdoc/idiomasdocpost/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/skill\\/skillpost\\/?$",
+			"src": "^/api/idiomasdoc/idiomasdocput/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/skill\\/skillput\\/?$",
+			"src": "^/api/insert_postulante/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/tipoe\\/tipoe\\/?$",
+			"src": "^/api/modalidades/modalidades/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/update_postulante\\/?$",
+			"src": "^/api/paises/paises/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/api\\/([^/]+?)\\/?$",
+			"src": "^/api/prodintelectual/prodintelpost/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/certificaciones\\/?$",
+			"src": "^/api/prodintelectual/prodintelput/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/dashboardDoc\\/?$",
+			"src": "^/api/skill/skillpost/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/docentes\\/formulario-registro\\/?$",
+			"src": "^/api/skill/skillput/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/docentes\\/?$",
+			"src": "^/api/tipoe/tipoe/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/login\\/?$",
+			"src": "^/api/update_postulante/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/perfil\\/editp\\/([^/]+?)\\/?$",
+			"src": "^/api/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/perfil\\/Index\\/?$",
+			"src": "^/certificaciones/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/postulantes\\/email\\/template\\/?$",
+			"src": "^/convocatorias/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/postulantes\\/info\\/([^/]+?)\\/?$",
+			"src": "^/convocatorias/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/postulantes\\/?$",
+			"src": "^/dashboardDoc/archivosDocentes/archivos/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/programas\\/?$",
+			"src": "^/dashboardDoc/convocatorias/convocatoria/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/prueba\\/prueba\\/?$",
+			"src": "^/dashboardDoc/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/registro-programas\\/?$",
+			"src": "^/docentes/formulario-registro/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^\\/$",
+			"src": "^/docentes/info/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/docentes/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/login/registro/indexRegistro/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/login/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/perfil/editp/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/perfil/Index/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/postulantes/email/template/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/postulantes/info/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/postulantes/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/programas/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/prueba/prueba/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/registro-programas/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
 			"dest": "_render"
 		}
 	]

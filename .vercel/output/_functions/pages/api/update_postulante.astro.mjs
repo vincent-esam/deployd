@@ -1,6 +1,4 @@
 import { c as connectToDatabase } from '../../chunks/dbConect_Be3anmNA.mjs';
-import fs from 'fs';
-import path from 'path';
 export { renderers } from '../../renderers.mjs';
 
 async function POST({ request }) {
@@ -26,24 +24,17 @@ async function POST({ request }) {
         { status: 400 }
       );
     }
-    let imagePath = null;
+    let imageBase64 = null;
     if (fotografia && fotografia.size > 0) {
       console.log("Imagen recibida en el backend:", fotografia);
-      const uploadDir = path.join(process.cwd(), "public/images/docentes");
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
-      const fileName = `${Date.now()}-${fotografia.name || "imagen"}`;
-      const filePath = path.join(uploadDir, fileName);
       try {
         const buffer = Buffer.from(await fotografia.arrayBuffer());
-        fs.writeFileSync(filePath, buffer);
-        console.log("La imagen se guardó en:", filePath);
-        imagePath = `/images/docentes/${fileName}`;
+        imageBase64 = buffer.toString("base64");
+        console.log("Imagen convertida a Base64.");
       } catch (err) {
-        console.error("Error al guardar la imagen:", err);
+        console.error("Error al procesar la imagen:", err);
         return new Response(
-          JSON.stringify({ error: "Error al guardar la imagen" }),
+          JSON.stringify({ error: "Error al procesar la imagen" }),
           { status: 500 }
         );
       }
@@ -80,8 +71,8 @@ async function POST({ request }) {
       genero?.trim() || null,
       direccion?.trim() || null,
       estado?.trim() || null,
-      imagePath,
-      // Si no se envió nueva imagen, se almacenará null (puedes adaptar esta lógica para conservar la foto actual)
+      imageBase64,
+      // Se almacena la cadena Base64 de la imagen (o null si no se envió nueva imagen)
       idDocente
     ];
     console.log("Actualizando docente con:", docenteValues);

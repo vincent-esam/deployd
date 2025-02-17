@@ -1,9 +1,7 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_DX4HsqQu.mjs';
+import { c as createComponent, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_DDyqfWY9.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_D9Y1fe3o.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState } from 'react';
-/* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
 const styles = {
@@ -123,7 +121,7 @@ const Login = () => {
 };
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Sistema Academico ESAM | Programas", "canonical": "https://academico-docentes.esam.edu.bo/", "description": "Sistema acad\xE9mico de ESAM para contrataci\xF3n y postulaci\xF3n de docentes.", "data-astro-cid-x2pxh5t7": true }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<div class="container" data-astro-cid-x2pxh5t7> <!-- Componente React para el formulario de login --> ${renderComponent($$result2, "Login", Login, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/login/login", "client:component-export": "Login", "data-astro-cid-x2pxh5t7": true })} <!-- Imagen secundaria --> <div class="teacher-image" data-astro-cid-x2pxh5t7> <img src="/images/teacherEsam.jpeg" alt="Teacher ESAM" data-astro-cid-x2pxh5t7> </div> </div> ` })}`;
+  return renderTemplate`<!-- Componente React para el formulario de login -->${renderComponent($$result, "Login", Login, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/login/Login", "client:component-export": "Login" })}`;
 }, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/index.astro", undefined);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/index.astro";

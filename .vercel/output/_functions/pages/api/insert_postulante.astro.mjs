@@ -1,6 +1,4 @@
 import { c as connectToDatabase } from '../../chunks/dbConect_Be3anmNA.mjs';
-import fs from 'fs';
-import path from 'path';
 import bcrypt from 'bcryptjs';
 export { renderers } from '../../renderers.mjs';
 
@@ -28,28 +26,18 @@ async function POST({ request }) {
       );
     }
     const hashedPassword = await bcrypt.hash(password.trim(), 10);
-    let imagePath = null;
+    let imageBase64 = null;
     if (imagen) {
       console.log("Nombre del archivo:", imagen.name);
       console.log("Tipo de archivo:", imagen.type);
-      const uploadDir = path.join(process.cwd(), "public/images/docentes");
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
-      const fileName = `${Date.now()}-${imagen.name || "imagen"}`;
-      const filePath = path.join(uploadDir, fileName);
       try {
-        if (imagen) {
-          const buffer = Buffer.from(await imagen.arrayBuffer());
-          console.log("Buffer de imagen:", buffer);
-          fs.writeFileSync(filePath, buffer);
-          console.log("Ruta donde se guardará la imagen:", filePath);
-        }
-        imagePath = `/images/docentes/${fileName}`;
+        const buffer = Buffer.from(await imagen.arrayBuffer());
+        imageBase64 = buffer.toString("base64");
+        console.log("Imagen convertida a Base64.");
       } catch (err) {
-        console.error("Error al guardar la imagen:", err);
+        console.error("Error al convertir la imagen:", err);
         return new Response(
-          JSON.stringify({ error: "Error al guardar la imagen" }),
+          JSON.stringify({ error: "Error al procesar la imagen" }),
           { status: 500 }
         );
       }
@@ -60,7 +48,7 @@ async function POST({ request }) {
         usuario, password, nombres, apellidoPaterno, apellidoMaterno, correo,
         ciudadRadicacion, idPais, telefono, fechaNacimiento,
         idAreaInteres, idSector, fotografia, estado
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
     const values = [
       usuario.trim(),
@@ -76,8 +64,8 @@ async function POST({ request }) {
       fechaNacimiento.trim(),
       Number(idAreaInteres),
       Number(idSector),
-      imagePath || null,
-      // Guardar la ruta de la imagen en la base de datos
+      imageBase64,
+      // Se almacena la cadena Base64 (o null si no se subió imagen)
       "postulante"
     ];
     await db.execute(query, values);

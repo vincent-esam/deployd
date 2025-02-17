@@ -1,9 +1,10 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_DX4HsqQu.mjs';
+import { c as createComponent, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_DDyqfWY9.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_D9Y1fe3o.mjs';
-import { $ as $$HeroTitle } from '../chunks/HeroTitle_9g63LuIb.mjs';
+import { $ as $$Layout } from '../chunks/Layout_BVg-EGxa.mjs';
+import { $ as $$HeroTitle } from '../chunks/HeroTitle_DeX6Rgca.mjs';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import { useState, useEffect } from 'react';
+import { R as ResultadosDocentes } from '../chunks/ResultadosDocentes_CZ2od6YJ.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
@@ -66,82 +67,6 @@ const DocenteFilterByGrade = ({ onGradeChange }) => {
   ] });
 };
 
-const ResultadosDocentes = ({
-  idDocente,
-  nombres,
-  correo,
-  numeroDocumento,
-  telefono
-}) => {
-  return /* @__PURE__ */ jsxs("div", { className: "v-card v-theme--light v-card--density-default v-card--variant-elevated mb-4", children: [
-    /* @__PURE__ */ jsx("div", { className: "v-card__loader", children: /* @__PURE__ */ jsxs(
-      "div",
-      {
-        className: "v-progress-linear v-theme--light v-locale--is-ltr",
-        role: "progressbar",
-        "aria-hidden": "true",
-        "aria-valuemin": 0,
-        "aria-valuemax": 100,
-        style: {
-          top: "0px",
-          height: "0px",
-          left: "50%",
-          transform: "translateX(-50%)"
-        },
-        children: [
-          /* @__PURE__ */ jsx(
-            "div",
-            {
-              className: "v-progress-linear__background",
-              style: { width: "100%" }
-            }
-          ),
-          /* @__PURE__ */ jsxs("div", { className: "v-progress-linear__indeterminate", children: [
-            /* @__PURE__ */ jsx("div", { className: "v-progress-linear__indeterminate long" }),
-            /* @__PURE__ */ jsx("div", { className: "v-progress-linear__indeterminate short" })
-          ] })
-        ]
-      }
-    ) }),
-    /* @__PURE__ */ jsxs("div", { className: "result-item", children: [
-      /* @__PURE__ */ jsxs("div", { className: "v-card-content", children: [
-        /* @__PURE__ */ jsx("div", { className: "v-card-title sub-title", children: nombres }),
-        /* @__PURE__ */ jsxs("div", { className: "v-card-subtitle", children: [
-          /* @__PURE__ */ jsxs("p", { children: [
-            /* @__PURE__ */ jsx("strong", { children: "Correo:" }),
-            " ",
-            correo
-          ] }),
-          /* @__PURE__ */ jsx("br", {}),
-          /* @__PURE__ */ jsxs("p", { children: [
-            /* @__PURE__ */ jsx("strong", { children: "CI:" }),
-            " ",
-            numeroDocumento
-          ] }),
-          /* @__PURE__ */ jsx("br", {}),
-          /* @__PURE__ */ jsxs("p", { children: [
-            /* @__PURE__ */ jsx("strong", { children: "Teléfono:" }),
-            " ",
-            telefono
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsx("div", { className: "v-card-actions", children: /* @__PURE__ */ jsxs(
-        "button",
-        {
-          type: "button",
-          className: "v-btn v-btn--slim v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-text button-card",
-          children: [
-            /* @__PURE__ */ jsx("span", { className: "v-btn__overlay" }),
-            /* @__PURE__ */ jsx("span", { className: "v-btn__underlay" }),
-            /* @__PURE__ */ jsx("a", { href: `/postulantes/info/${idDocente}`, children: "ABRIR" })
-          ]
-        }
-      ) })
-    ] })
-  ] });
-};
-
 const DocenteSearch = () => {
   const [allDocentes, setAllDocentes] = useState([]);
   const [filteredDocentes, setFilteredDocentes] = useState([]);
@@ -173,7 +98,7 @@ const DocenteSearch = () => {
         (docente) => (
           // Buscar por nombre, correo o documento
           docente.nombres && docente.nombres.toLowerCase().includes(searchLower) || docente.correo && docente.correo.toLowerCase().includes(searchLower) || docente.numeroDocumento && docente.numeroDocumento.toString().includes(searchTerm) || // Buscar por postgrado
-          docente.estudiossuperiores && docente.estudiossuperiores.some(
+          docente.estudiosuperiores && docente.estudiosuperiores.some(
             (estudio) => estudio.tipo === "postgrado" && estudio.nombre && estudio.nombre.toLowerCase().includes(searchLower)
           ) || // Buscar por cursos
           docente.cursos && docente.cursos.some(
@@ -188,7 +113,7 @@ const DocenteSearch = () => {
   };
   const handleGradeChange = (selectedGrado) => {
     const filtered = selectedGrado ? allDocentes.filter(
-      (docente) => docente.estudiossuperiores.some(
+      (docente) => docente.estudiosuperiores.some(
         (estudio) => estudio.gradoTipo === selectedGrado
       )
     ) : allDocentes;

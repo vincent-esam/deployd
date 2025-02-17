@@ -1,6 +1,6 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../../chunks/astro/server_DX4HsqQu.mjs';
+import { c as createComponent, r as renderTemplate, d as renderComponent } from '../../chunks/astro/server_DDyqfWY9.mjs';
 import 'kleur/colors';
-import ProduccionesIntelectualesManager from '../../chunks/DocentesIntel_C57n9-61.mjs';
+import ProduccionesIntelectualesManager from '../../chunks/DocentesIntel_2mGs8-dk.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Prueba = createComponent(($$result, $$props, $$slots) => {
