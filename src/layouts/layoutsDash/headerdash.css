@@ -1,55 +1,49 @@
-#logoEsamMobile,
-#titloMobile {
-  display: none;
-}
-
-#logoEsam {
-  text-decoration: none;
-  background-image: url(/images/logoEsam.png);
-  background-repeat: no-repeat;
-
-  background-size: cover;
-  margin-left: 70px;
-  width: 160px;
-
-  border: 0 solid;
-
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-  &:hover {
-    box-shadow:
-      inset 0 0 30px rgba(255, 255, 255, 0.267),
-      0 0 20px rgba(255, 255, 255, 0.2);
-    outline-offset: 15px;
-    outline-color: rgba(255, 255, 255, 0);
-  }
-}
-
-header {
+/* Estilos base del Header */
+.header-dash {
   display: flex;
   align-items: center;
-  position: relative;
   justify-content: space-between;
- 
-  grid-template-columns: 10% 1fr;
-  height: 80px;
+  height: 100px;
   width: 100%;
   background-color: #1a202c;
-  /* background-image: linear-gradient(to right, rgba(52, 53, 124, 0.8),30%,rgba(21, 104, 153, 0.0)); */
-  align-items: center;
-  justify-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 15px; /* Espacio entre el logo y el título */
+  gap: 15px;
 }
 
-.logout-button {
-  background-color: #ff4d4f; /* Rojo para destacar */
+/* Logo versión desktop */
+.header-logo-desktop {
+  display: block;
+  text-decoration: none;
+  background-image: url('/images/logoEsam.png');
+  background-repeat: no-repeat;
+  background-size: contain; /* Ajusta la imagen al tamaño del contenedor sin recortar */
+  background-position: center;
+  width: 160px; /* Ancho exacto */
+  height: 60px; /* Alto exacto */
+  padding: 0; /* Elimina padding para evitar distorsiones */
+  transition: box-shadow 0.3s ease;
+}
+
+.header-logo-desktop:hover {
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.267),
+              0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Elementos para versión mobile: inicialmente ocultos */
+.header-logo-mobile,
+.header-title-mobile {
+  display: none;
+}
+
+/* Botón de cierre de sesión */
+.header-logout-button {
+  background-color: #ff4d4f;
   color: white;
   border: none;
   border-radius: 5px;
@@ -58,78 +52,55 @@ header {
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 150px;
-  margin-left: 100px;
-}
-@keyframes degrade {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 50% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes iniciar {
-  0% {
-    margin-top: 3%;
-
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-
-    margin-top: 1rem;
-  }
 }
 
-#titulo-head {
-  color: azure;
-  margin-right: 150px;
-  font-size: 32px;
-}
-
-@media (max-width: 768px) {
-  header {
-    grid-template-columns: 30% 1fr;
-  }
-
-  #logoEsam,
-  #titulo {
-    display: none;
-  }
-
-  
-
-  #logoEsamMobile {
-    text-decoration: none;
-    display: block;
-    background-image: url(/images/isotipo.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 80px;
-    height: 40px;
-  }
-
-  #tituloMobile {
-    margin-left: 15px;
-    padding-left: 40px;
-    font-size: 18px;
-    margin-top: -2px;
-    color: white;
-  }
-}
-
-.barraAmarilla {
+/* Barra amarilla que ocupa el 100% del ancho */
+.header-bar {
   background-color: #F2DE3A;
   height: 10px;
   width: 100%;
-  background-size: 550% 100%;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .header-dash {
+    height: auto; /* Cambiado de 100vh a auto */
+    min-height: 60px; /* Define una altura mínima */
+    width: 100%;
+    padding: 0 10px;
+  }
+  /* Oculta el logo desktop en mobile */
+  .header-logo-desktop {
+    display: none;
+  }
+
+  /* Muestra logo y título mobile */
+  .header-logo-mobile {
+    display: block;
+    background-image: url('/images/isotipo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;  /* Antes estaba en 100vh, ahora se ajusta al ancho */
+    height: 40px;
+  }
+
+  .header-title-mobile {
+    display: block;
+    font-size: 18px;
+    color: white;
+    margin-left: 10px;
+    align-self: center;
+  }
+
+  /* Ajusta el botón de logout */
+  .header-logout-button {
+    width: auto;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* Ajusta el espacio entre elementos en header-left */
+  .header-left {
+    gap: 10px;
+  }
 }

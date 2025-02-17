@@ -1,8 +1,9 @@
 ---
 import LayoutDashboard from "../../layouts/LayoutDashboard.astro";
-import { Dashboard } from "../../components/login/dashboard";
+import {DashboardDoc} from "../../components/login/DashboardDoc";
+
 ---
 
 <LayoutDashboard >
-  <Dashboard client:load />
+   <DashboardDoc client:load /> 
 </LayoutDashboard>

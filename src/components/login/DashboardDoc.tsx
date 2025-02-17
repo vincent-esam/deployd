@@ -18,7 +18,7 @@ interface Docente {
   fotografia: string;
 }
 
-export const Dashboard: React.FC = () => {
+export const DashboardDoc: React.FC = () => {
   const [idDocente, setIdDocente] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [docenteData, setDocenteData] = useState<Docente | null>(null);
@@ -159,7 +159,7 @@ export const Dashboard: React.FC = () => {
     <div>
       <div className="Prueba">
         <div className="contenedor2">
-          <h1> Perfil</h1>
+          <h1 className="perfil"> Perfil</h1>
           <div className="contenedor2-1">
             <h1 className="form-title"></h1>
             <div className="contenedor1">

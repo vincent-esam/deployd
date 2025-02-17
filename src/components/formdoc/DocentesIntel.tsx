@@ -24,7 +24,8 @@ interface NewProduccion {
 
 const ProduccionesIntelectualesManager: React.FC = () => {
   const [idDocente, setIdDocente] = useState<number | null>(null);
-  const [producciones, setProducciones] = useState<ProduccionIntelectual[]>([]);
+  // Si la API pudiera retornar elementos nulos, definimos el estado como (ProduccionIntelectual | null)[]
+  const [producciones, setProducciones] = useState<(ProduccionIntelectual | null)[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [newProduccion, setNewProduccion] = useState<NewProduccion>({
     nombre: '',
@@ -54,6 +55,7 @@ const ProduccionesIntelectualesManager: React.FC = () => {
         const response = await fetch(`http://localhost:4321/api/docentes/${docenteId}`);
         if (!response.ok) throw new Error('Error al obtener datos del docente');
         const data = await response.json();
+        // Se asume que la API devuelve la propiedad "publicacionesintelectuales"
         setProducciones(data.publicacionesintelectuales || []);
       } catch (error) {
         console.error('Error al cargar datos:', error);
@@ -99,7 +101,7 @@ const ProduccionesIntelectualesManager: React.FC = () => {
       alert('Producción intelectual actualizada correctamente');
       setProducciones((prev) =>
         prev.map((prod) =>
-          prod.idProduccionIntelectual === editingProduccion.idProduccionIntelectual
+          prod && prod.idProduccionIntelectual === editingProduccion.idProduccionIntelectual
             ? editingProduccion
             : prod
         )
@@ -130,6 +132,7 @@ const ProduccionesIntelectualesManager: React.FC = () => {
       if (!response.ok) throw new Error('Error al crear nueva producción intelectual');
       const createdData = await response.json();
       alert('Nueva producción intelectual creada');
+      // Se asume que la respuesta trae un array llamado "publicacionesintelectuales"
       setProducciones([...producciones, createdData.publicacionesintelectuales[0]]);
       closeModals();
     } catch (error) {
@@ -150,26 +153,27 @@ const ProduccionesIntelectualesManager: React.FC = () => {
             Crear Nueva Producción
           </button>
           <div className="producciones-list">
-            {producciones.map((produccion) => (
+            {/* Filtrar elementos nulos antes de mapear */}
+            {producciones.filter(prod => prod !== null).map((produccion) => (
               <div
                 className="produccion-item"
-                key={produccion.idProduccionIntelectual}
+                key={produccion!.idProduccionIntelectual}
               >
-                <h4>{produccion.nombre}</h4>
+                <h4>{produccion!.nombre}</h4>
                 <p>
                   Enlace Editorial:{' '}
                   <a
-                    href={produccion.enlaceEditorial}
+                    href={produccion!.enlaceEditorial}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {produccion.enlaceEditorial}
+                    {produccion!.enlaceEditorial}
                   </a>
                 </p>
-                <p>Tipo de Publicación: {produccion.idTipoPublicacion}</p>
-                <p>País: {produccion.pais}</p>
-                <p>Fecha: {produccion.fecha}</p>
-                <button onClick={() => openEditModal(produccion)}>Editar</button>
+                <p>Tipo de Publicación: {produccion!.idTipoPublicacion}</p>
+                <p>País: {produccion!.pais}</p>
+                <p>Fecha: {produccion!.fecha}</p>
+                <button onClick={() => openEditModal(produccion!)}>Editar</button>
               </div>
             ))}
           </div>
@@ -208,14 +212,14 @@ const ProduccionesIntelectualesManager: React.FC = () => {
                 })
               }
             />
-             <div>
+            <div>
               <CountrySelect
                 valueAndId="idPais"
                 selectedId={editingProduccion.idPais}
-                selected={editingProduccion?.pais}
+                selected={editingProduccion.pais}
                 selectedCountry={{
-                  id: editingProduccion?.idPais || 0,
-                  name: editingProduccion?.pais || "", // Asegúrate de que esté el valor correcto aquí
+                  id: editingProduccion.idPais || 0,
+                  name: editingProduccion.pais || "",
                 }}
                 onCountryChange={(selectedCountry) => {
                   setEditingProduccion((prev) =>
@@ -276,22 +280,22 @@ const ProduccionesIntelectualesManager: React.FC = () => {
               }
             />
             <div>
-            <CountrySelect
-  valueAndId="idPais"
-  selectedId={newProduccion.idPais}
-  selected={newProduccion.pais || ""} // Aquí se asegura que siempre sea una cadena
-  selectedCountry={{
-    id: newProduccion.idPais || 0,
-    name: newProduccion.pais || "", // Proporciona un valor predeterminado
-  }}
-  onCountryChange={(selectedCountry) => {
-    setNewProduccion((prev) => ({
-      ...prev,
-      idPais: selectedCountry.id,
-      pais: selectedCountry.name,
-    }));
-  }}
-/>
+              <CountrySelect
+                valueAndId="idPais"
+                selectedId={newProduccion.idPais}
+                selected={newProduccion.pais || ""}
+                selectedCountry={{
+                  id: newProduccion.idPais || 0,
+                  name: newProduccion.pais || "",
+                }}
+                onCountryChange={(selectedCountry) => {
+                  setNewProduccion((prev) => ({
+                    ...prev,
+                    idPais: selectedCountry.id,
+                    pais: selectedCountry.name,
+                  }));
+                }}
+              />
             </div>
             <input
               type="date"

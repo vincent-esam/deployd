@@ -1,3 +1,8 @@
+.perfil{
+  color: white;
+}
+
+
 .profile-container {
   max-width: 100%;
   margin: 0 auto;
@@ -103,6 +108,9 @@
   .profile-form {
     grid-template-columns: 1fr;
   }
+
+
+  
 }
 
 .edit-button1 {
@@ -417,4 +425,42 @@ background-color: #f4f2ee;
 .animated-button-producciones:active {
   transform: translateY(1px);
   background-color: #004494;
+}
+
+/* ... Tus estilos actuales ... */
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Ajusta el ancho y padding de los contenedores principales */
+  .contenedor2-1,
+  .contenedor2-2 {
+    width: 95%; /* Se expande al 95% del ancho de la pantalla */
+    padding: 15px;
+    margin: 0 auto; /* Centra el contenedor */
+  }
+
+  /* Hace que el contenedor de información y el botón de edición se apilen */
+  .profile-info-edit-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Ajusta el botón de edición para que no tenga margen derecho excesivo */
+  .edit-button1 {
+    margin-right: 0;
+    margin-top: 10px;
+  }
+
+  /* Ajusta el contenedor de perfil (y su contenido) */
+  .profile-container {
+    padding: 15px;
+  }
+
+  /* Hace que los botones se muestren uno debajo del otro */
+  .buttons-container-perfil {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 }

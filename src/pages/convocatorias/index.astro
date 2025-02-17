@@ -1,14 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { ConvocatoriasList } from "../../components/convocatorias/ConvocatoriasList";
 import HeroTitle from "../../components/ui/HeroTitle.astro";
-import { BuscarDocente } from "../../components/docentes/docentesAprobados/BuscarDocentes";
 ---
 
 <Layout
-  title="Sistema Academico ESAM | Docentes"
   canonical="https://academico-docentes.esam.edu.bo/"
   description="Sistema académico de ESAM para contratación y postulación de docentes."
+  title="Sistema Academico ESAM | Convocatorias"
 >
-  <HeroTitle titulo="Docentes" />
-  <BuscarDocente  client:load/>
+<HeroTitle titulo="Convocatorias" />
+  <ConvocatoriasList client:load/>
 </Layout>
