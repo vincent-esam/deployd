@@ -182,10 +182,11 @@ const ProduccionesIntelectualesManager: React.FC = () => {
 
       {/* Modal para editar */}
       {isModalOpen && editingProduccion && (
-        <div className="modal edit-modal">
-          <div className="modal-content">
+        <div className="modal-prodin modal-prodin--edit">
+          <div className="modal-prodin__content">
             <h3>Editar Producción Intelectual</h3>
             <input
+              className="modal-prodin__input"
               type="text"
               placeholder="Nombre"
               value={editingProduccion.nombre}
@@ -194,6 +195,7 @@ const ProduccionesIntelectualesManager: React.FC = () => {
               }
             />
             <input
+              className="modal-prodin__input"
               type="text"
               placeholder="Enlace Editorial"
               value={editingProduccion.enlaceEditorial}
@@ -202,6 +204,7 @@ const ProduccionesIntelectualesManager: React.FC = () => {
               }
             />
             <input
+              className="modal-prodin__input"
               type="number"
               placeholder="Tipo de Publicación"
               value={editingProduccion.idTipoPublicacion}
@@ -235,24 +238,26 @@ const ProduccionesIntelectualesManager: React.FC = () => {
               />
             </div>
             <input
+              className="modal-prodin__input"
               type="date"
               value={editingProduccion.fecha}
               onChange={(e) =>
                 setEditingProduccion({ ...editingProduccion, fecha: e.target.value })
               }
             />
-            <button onClick={handleEdit}>Guardar Cambios</button>
-            <button onClick={closeModals}>Cerrar</button>
+            <button className="modal-prodin__button" onClick={handleEdit}>Guardar Cambios</button>
+            <button className="modal-prodin__button" onClick={closeModals}>Cerrar</button>
           </div>
         </div>
       )}
 
       {/* Modal para crear */}
       {isCreateModalOpen && (
-        <div className="modal create-modal">
-          <div className="modal-content">
+        <div className="modal-prodin modal-prodin--create">
+          <div className="modal-prodin__content">
             <h3>Crear Nueva Producción Intelectual</h3>
             <input
+              className="modal-prodin__input"
               type="text"
               placeholder="Nombre"
               value={newProduccion.nombre}
@@ -261,6 +266,7 @@ const ProduccionesIntelectualesManager: React.FC = () => {
               }
             />
             <input
+              className="modal-prodin__input"
               type="text"
               placeholder="Enlace Editorial"
               value={newProduccion.enlaceEditorial}
@@ -269,6 +275,7 @@ const ProduccionesIntelectualesManager: React.FC = () => {
               }
             />
             <input
+              className="modal-prodin__input"
               type="number"
               placeholder="Tipo de Publicación"
               value={newProduccion.idTipoPublicacion}
@@ -298,14 +305,15 @@ const ProduccionesIntelectualesManager: React.FC = () => {
               />
             </div>
             <input
+              className="modal-prodin__input"
               type="date"
               value={newProduccion.fecha}
               onChange={(e) =>
                 setNewProduccion({ ...newProduccion, fecha: e.target.value })
               }
             />
-            <button onClick={handleCreate}>Crear</button>
-            <button onClick={closeModals}>Cerrar</button>
+            <button className="modal-prodin__button" onClick={handleCreate}>Crear</button>
+            <button className="modal-prodin__button" onClick={closeModals}>Cerrar</button>
           </div>
         </div>
       )}

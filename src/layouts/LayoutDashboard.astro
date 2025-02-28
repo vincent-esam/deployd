@@ -36,14 +36,15 @@ import Slidebar from "../layouts/layoutsDash/Slidebar";
     background-color: rgb(255, 0, 0);
     display: flex;
     flex-direction: column;
-    height: 400px;
-    width: 100%;
+   
+    
     overflow: hidden;
   }
 
   .layout {
     display: flex;
     flex: 1;
+    height: 100vh; /* Ocupar toda la altura */
   }
 
   .contenidoPrincipal {
@@ -51,6 +52,7 @@ import Slidebar from "../layouts/layoutsDash/Slidebar";
     padding: 20px;
     background-color: #f5f5f5;
     transition: margin-left 0.3s ease;
+    min-height: 100vh; /* Asegura que crezca si es necesario */
   }
 
   .contenidoPrincipal {

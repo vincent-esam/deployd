@@ -1,4 +1,4 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../../../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, d as renderComponent, r as renderTemplate } from '../../../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState } from 'react';
@@ -375,7 +375,7 @@ const RegistroDocente = () => {
 
 const $$IndexRegistro = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`<!-- Componente React para el formulario de registro -->${renderComponent($$result, "RegistroDocente", RegistroDocente, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/login/Registro", "client:component-export": "RegistroDocente" })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/registro/indexRegistro.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/registro/indexRegistro.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/registro/indexRegistro.astro";
 const $$url = "/login/registro/indexRegistro";

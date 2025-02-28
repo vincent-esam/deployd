@@ -1,4 +1,4 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, d as renderComponent, r as renderTemplate } from '../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState } from 'react';
@@ -121,8 +121,8 @@ const Login = () => {
 };
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`<!-- Componente React para el formulario de login -->${renderComponent($$result, "Login", Login, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/login/Login", "client:component-export": "Login" })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/index.astro", undefined);
+  return renderTemplate`<!-- Componente React para el formulario de login -->${renderComponent($$result, "Login", Login, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/login/login", "client:component-export": "Login" })}`;
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/index.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/login/index.astro";
 const $$url = "/login";

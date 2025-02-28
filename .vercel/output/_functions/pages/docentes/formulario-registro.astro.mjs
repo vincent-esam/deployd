@@ -1,6 +1,6 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, d as renderComponent, r as renderTemplate } from '../../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$LayoutForm } from '../../chunks/LayoutForm_wNbaqqe1.mjs';
+import { $ as $$LayoutForm } from '../../chunks/LayoutForm_BIHhal3Z.mjs';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { i as infoPaises, C as CountriesFormSelect, A as AreaForm } from '../../chunks/AreaForm_2WRxHX5U.mjs';
@@ -503,7 +503,7 @@ const SingleForm = () => {
 
 const $$FormularioRegistro = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$LayoutForm, { "title": "Formulario de registro Docentes ESAM", "data-astro-cid-prbgqysy": true }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "SingleForm", SingleForm, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/formdoc/SingleForm", "client:component-export": "SingleForm", "data-astro-cid-prbgqysy": true })} ` })} `;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/docentes/formulario-registro.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/docentes/formulario-registro.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/docentes/formulario-registro.astro";
 const $$url = "/docentes/formulario-registro";

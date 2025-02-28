@@ -1,7 +1,7 @@
-import { c as connectToDatabase } from '../../../../chunks/dbConect_Be3anmNA.mjs';
+import { c as connectToDatabase } from '../../../../chunks/dbConect_BXvRdf3y.mjs';
 export { renderers } from '../../../../renderers.mjs';
 
-const sanitizeValue = (value) => value === undefined ? null : value;
+const sanitizeValue = (value) => value === void 0 ? null : value;
 async function PUT({ request, params }) {
   try {
     const { idConvocatoria } = params;

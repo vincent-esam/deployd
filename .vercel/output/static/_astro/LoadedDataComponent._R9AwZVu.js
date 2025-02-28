@@ -1,0 +1,1 @@
+import{j as r}from"./jsx-runtime.D_zvdyIk.js";import"./index.Bgw4UDry.js";const e=({title:n,data:o})=>r.jsxs("div",{children:[r.jsx("h4",{children:n}),r.jsx("span",{children:o})]});export{e as LoadedDataComponent};

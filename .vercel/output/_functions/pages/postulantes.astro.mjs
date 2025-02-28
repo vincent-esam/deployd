@@ -1,7 +1,7 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, d as renderComponent, r as renderTemplate } from '../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_BVg-EGxa.mjs';
-import { $ as $$HeroTitle } from '../chunks/HeroTitle_DeX6Rgca.mjs';
+import { $ as $$Layout } from '../chunks/Layout_DNV0txGe.mjs';
+import { $ as $$HeroTitle } from '../chunks/HeroTitle_D919oC3L.mjs';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import { useState, useEffect } from 'react';
 import { R as ResultadosDocentes } from '../chunks/ResultadosDocentes_CZ2od6YJ.mjs';
@@ -172,11 +172,11 @@ const DocenteSearch = () => {
 
 const $$DocenteSearchContainer = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "DocenteSearch", DocenteSearch, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/docentes/DocenteSearch", "client:component-export": "DocenteSearch" })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/docentes/DocenteSearchContainer.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/docentes/DocenteSearchContainer.astro", void 0);
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Sistema Academico ESAM | Postulantes", "canonical": "https://academico-docentes.esam.edu.bo/", "description": "Sistema acad\xE9mico de ESAM para contrataci\xF3n y postulaci\xF3n de docentes." }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "HeroTitle", $$HeroTitle, { "titulo": "Postulantes" })} ${renderComponent($$result2, "DocenteSearchContainer", $$DocenteSearchContainer, {})} ` })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/postulantes/index.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/postulantes/index.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/postulantes/index.astro";
 const $$url = "/postulantes";

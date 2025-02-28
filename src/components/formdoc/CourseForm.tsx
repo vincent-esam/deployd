@@ -214,9 +214,9 @@ const ExperienciaDocenteManager: React.FC = () => {
       </button>
   
       {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2 className="modal-title">
+        <div className="modal-curse">
+          <div className="modal-content-curse">
+            <h2 className="modal-title-curse">
               {isEditModal ? "Editar experiencia docente" : "Agregar nueva experiencia docente"}
             </h2>
             <form

@@ -1,6 +1,6 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, d as renderComponent, r as renderTemplate } from '../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$LayoutDashboard } from '../chunks/LayoutDashboard_Dng2E6DV.mjs';
+import { $ as $$LayoutDashboard } from '../chunks/LayoutDashboard_DYjrJtGh.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import React, { useState, useEffect, Suspense } from 'react';
 /* empty css                                 */
@@ -314,7 +314,7 @@ const DashboardDoc = () => {
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "LayoutDashboard", $$LayoutDashboard, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "DashboardDoc", DashboardDoc, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/login/DashboardDoc", "client:component-export": "DashboardDoc" })} ` })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/index.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/index.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/index.astro";
 const $$url = "/dashboardDoc";

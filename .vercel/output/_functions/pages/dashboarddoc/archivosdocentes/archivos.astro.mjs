@@ -1,10 +1,10 @@
-import { c as createComponent, r as renderTemplate, f as renderHead, d as renderComponent } from '../../../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, f as renderHead, d as renderComponent, r as renderTemplate } from '../../../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState, useEffect } from 'react';
 import { M as Modal } from '../../../chunks/modale_uuPewxgq.mjs';
 import jwt_decode from 'jwt-decode';
-import { $ as $$LayoutDashboard } from '../../../chunks/LayoutDashboard_Dng2E6DV.mjs';
+import { $ as $$LayoutDashboard } from '../../../chunks/LayoutDashboard_DYjrJtGh.mjs';
 export { renderers } from '../../../renderers.mjs';
 
 const UploadFile = ({ tipoArchivo }) => {
@@ -261,7 +261,7 @@ const ProfileUpload = () => {
 
 const $$Archivos = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`<html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Archivos del Docente</title>${renderHead()}</head> <body> ${renderComponent($$result, "LayoutDashboard", $$LayoutDashboard, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "ProfileUpload", ProfileUpload, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/docentes/ProfileUpload", "client:component-export": "ProfileUpload" })} ` })} </body></html>`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/archivosDocentes/archivos.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/archivosDocentes/archivos.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/archivosDocentes/archivos.astro";
 const $$url = "/dashboardDoc/archivosDocentes/archivos";

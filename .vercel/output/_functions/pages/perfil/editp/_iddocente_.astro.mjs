@@ -1,7 +1,7 @@
-import { c as createComponent, a as createAstro, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../../../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, a as createAstro, d as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../../chunks/Layout_BVg-EGxa.mjs';
-import { $ as $$HeroTitle } from '../../../chunks/HeroTitle_DeX6Rgca.mjs';
+import { $ as $$Layout } from '../../../chunks/Layout_DNV0txGe.mjs';
+import { $ as $$HeroTitle } from '../../../chunks/HeroTitle_D919oC3L.mjs';
 import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
 import { useState, useEffect } from 'react';
 import { C as CountrySelect } from '../../../chunks/CountrySelect_B7mIVeYP.mjs';
@@ -388,7 +388,7 @@ const $$idDocente = createComponent(($$result, $$props, $$slots) => {
     throw new Error("El ID del docente debe ser un n\xFAmero");
   }
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Sistema Academico ESAM | Programas", "canonical": "https://academico-docentes.esam.edu.bo/", "description": "Sistema acad\xE9mico de ESAM para contrataci\xF3n y postulaci\xF3n de docentes." }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "HeroTitle", $$HeroTitle, { "titulo": "Perfil" })} ${maybeRenderHead()}<div id="docente-info"> ${renderComponent($$result2, "EditDocente", EditDocente, { "idDocente": idDocente, "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/perfil-doc/EditDocente", "client:component-export": "default" })} </div> ` })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/perfil/editp/[idDocente].astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/perfil/editp/[idDocente].astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/perfil/editp/[idDocente].astro";
 const $$url = "/perfil/editp/[idDocente]";

@@ -1,6 +1,6 @@
-import { c as createComponent, a as createAstro, r as renderTemplate, d as renderComponent, m as maybeRenderHead, g as addAttribute } from '../../../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, a as createAstro, d as renderComponent, r as renderTemplate, m as maybeRenderHead, g as addAttribute } from '../../../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$LayoutForm } from '../../../chunks/LayoutForm_wNbaqqe1.mjs';
+import { $ as $$LayoutForm } from '../../../chunks/LayoutForm_BIHhal3Z.mjs';
 /* empty css                                             */
 export { renderers } from '../../../renderers.mjs';
 
@@ -41,7 +41,7 @@ const $$idDocente = createComponent(async ($$result, $$props, $$slots) => {
   });
   return renderTemplate`${renderComponent($$result, "LayoutForm", $$LayoutForm, { "title": `Archivos de ${docenteData.nombres}` }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="back-button-container"> <a href="/docentes" class="backbutton"> <img src="/images/iconos/back.png" alt="Regresar" class="back-icon"> </a> </div> <div class="docente-info"> <h1>Archivos Subidos por: ${docenteData.nombres}</h1> </div> <div class="archivos-container"> ${Object.entries(archivosPorCategoria).map(([categoria, archivos]) => renderTemplate`<section class="categoria"> <h2>${categoria}</h2> ${archivos.length > 0 ? renderTemplate`<ul class="archivo-lista"> ${archivos.map((archivo) => renderTemplate`<li> <a${addAttribute(archivo.rutaArchivo, "href")} target="_blank" class="archivo-link"> ${archivo.nombreArchivo} </a> <p class="archivo-fecha">
 Subido el: ${new Date(archivo.fechaSubida).toLocaleString()} </p> </li>`)} </ul>` : renderTemplate`<p class="mensaje-vacio">Todavía no hay archivos subidos</p>`} </section>`)} </div> ` })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/docentes/info/[idDocente].astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/docentes/info/[idDocente].astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/docentes/info/[idDocente].astro";
 const $$url = "/docentes/info/[idDocente]";

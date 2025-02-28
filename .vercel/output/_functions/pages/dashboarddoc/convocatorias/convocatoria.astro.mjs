@@ -1,6 +1,6 @@
-import { c as createComponent, r as renderTemplate, f as renderHead, d as renderComponent, g as addAttribute } from '../../../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, f as renderHead, d as renderComponent, r as renderTemplate, g as addAttribute } from '../../../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$LayoutDashboard } from '../../../chunks/LayoutDashboard_Dng2E6DV.mjs';
+import { $ as $$LayoutDashboard } from '../../../chunks/LayoutDashboard_DYjrJtGh.mjs';
 /* empty css                                              */
 export { renderers } from '../../../renderers.mjs';
 
@@ -18,7 +18,7 @@ const $$Convocatoria = createComponent(async ($$result, $$props, $$slots) => {
     // Formatear fecha de inicio
   }));
   return renderTemplate`<html lang="es" data-astro-cid-3plv5bdz> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Convocatorias</title>${renderHead()}</head> <body data-astro-cid-3plv5bdz> ${renderComponent($$result, "LayoutDashboard", $$LayoutDashboard, { "data-astro-cid-3plv5bdz": true }, { "default": ($$result2) => renderTemplate` <div class="container" data-astro-cid-3plv5bdz> <h1 data-astro-cid-3plv5bdz>Convocatorias Abiertas</h1> <div class="grid" data-astro-cid-3plv5bdz> ${convocatoriasAbiertas.map((convocatoria) => renderTemplate`<div class="card" data-astro-cid-3plv5bdz> <h2 data-astro-cid-3plv5bdz>${convocatoria.titulo}</h2> <p data-astro-cid-3plv5bdz><strong data-astro-cid-3plv5bdz>Fecha de inicio:</strong> ${convocatoria.fechaInicio}</p> <a${addAttribute(convocatoria.link, "href")} class="btn" data-astro-cid-3plv5bdz>Abrir</a> </div>`)} </div> </div> ` })}  </body> </html>`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/convocatorias/convocatoria.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/convocatorias/convocatoria.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/dashboardDoc/convocatorias/convocatoria.astro";
 const $$url = "/dashboardDoc/convocatorias/convocatoria";

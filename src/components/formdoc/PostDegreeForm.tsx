@@ -257,9 +257,9 @@ const FormularioDocente: React.FC = () => {
 
       {/* Modal para editar o crear un estudio */}
       {selectedEstudio && (
-        <div className="modal">
-          <div className="modal-content">
-            <div className="modal-title">
+        <div className="modal-post">
+          <div className="modal-content-post">
+            <div className="modal-title-post">
               <h4>Editar Estudio</h4>
             </div>
             <div>

@@ -1,7 +1,7 @@
-import { c as createComponent, r as renderTemplate, d as renderComponent } from '../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, d as renderComponent, r as renderTemplate } from '../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_BVg-EGxa.mjs';
-import { $ as $$HeroTitle } from '../chunks/HeroTitle_DeX6Rgca.mjs';
+import { $ as $$Layout } from '../chunks/Layout_DNV0txGe.mjs';
+import { $ as $$HeroTitle } from '../chunks/HeroTitle_D919oC3L.mjs';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { i as infoProgramas } from '../chunks/infoModulosPrueba_B9lxFZqF.mjs';
@@ -34,7 +34,7 @@ const ProgramSearch = () => {
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Sistema Academico ESAM | Programas", "canonical": "https://academico-docentes.esam.edu.bo/", "description": "Sistema acad\xE9mico de ESAM para contrataci\xF3n y postulaci\xF3n de docentes." }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "HeroTitle", $$HeroTitle, { "titulo": "Programas" })} ${renderComponent($$result2, "ProgramSearch", ProgramSearch, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/programas/ProgramSearch", "client:component-export": "ProgramSearch" })} ` })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/programas/index.astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/programas/index.astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/programas/index.astro";
 const $$url = "/programas";

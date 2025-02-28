@@ -1,4 +1,4 @@
-import { c as connectToDatabase } from '../../chunks/dbConect_Be3anmNA.mjs';
+import { c as connectToDatabase } from '../../chunks/dbConect_BXvRdf3y.mjs';
 import bcrypt from 'bcryptjs';
 export { renderers } from '../../renderers.mjs';
 

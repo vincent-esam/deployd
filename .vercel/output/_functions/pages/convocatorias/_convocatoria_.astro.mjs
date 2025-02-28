@@ -1,6 +1,6 @@
-import { c as createComponent, a as createAstro, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../../chunks/astro/server_DDyqfWY9.mjs';
+import { c as createComponent, a as createAstro, d as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_CdpYlLHK.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Layout_BVg-EGxa.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_DNV0txGe.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState, useEffect } from 'react';
 /* empty css                                             */
@@ -150,7 +150,7 @@ const $$convocatoria = createComponent(async ($$result, $$props, $$slots) => {
 Para postular primero debe Iniciar sesion en nuestro sistema. 
         Si no tienes una cuenta, <a href="/login/registro/indexRegistro" data-astro-cid-7j6wxzuu>REGISTRATE AQUI</a>.
 </p> ${renderComponent($$result2, "PostulacionButton", PostulacionButton, { "client:load": true, "convocatoriaId": convocatoriaData.idConvocatoria, "client:component-hydration": "load", "client:component-path": "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/components/convocatorias/filters/PostulacionButton", "client:component-export": "default", "data-astro-cid-7j6wxzuu": true })} </div> </div>   ` })}`;
-}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/convocatorias/[convocatoria].astro", undefined);
+}, "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/convocatorias/[convocatoria].astro", void 0);
 
 const $$file = "C:/Users/TIESA/OneDrive/Escritorio/Astrojs-academic/academic/src/pages/convocatorias/[convocatoria].astro";
 const $$url = "/convocatorias/[convocatoria]";

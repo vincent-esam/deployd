@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+ "dev": "astro dev --host",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "node ./dist/server/entry.mjs",
     "astro": "astro",
     "check-dist": "ls -la dist/server/"
   },
@@ -25,10 +25,12 @@
     "jwt-decode": "^3.1.2",
     "lucide-react": "^0.475.0",
     "mysql2": "^3.12.0",
-    "react-datepicker": "^8.0.0"
+    "react-datepicker": "^8.0.0",
+    "react-router-dom": "^7.1.5"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.8",
     "@types/node": "^22.13.1",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "wrangler": "^3.108.0"
